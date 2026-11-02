@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Akram Hssaine</title>
+<meta name="description" content="Akram Hssaine, final-year student in Kénitra, Morocco. Projects, certificates and press.">
+<meta property="og:title" content="Akram Hssaine">
+<meta property="og:description" content="Robots, automation and code, built in Kénitra, Morocco.">
+<meta property="og:image" content="hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&display=swap">
+<style>
+:root{
+  --bg:#000;--panel:#111;--panel2:#161616;--line:#232323;
+  --text:#f2f2f2;--muted:#8c8c8c;--dim:#5c5c5c;--accent:#fb8989;--ok:#58d68d;
+  --font:"Inter Tight","Saans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --r:14px;--gut:max(20px,env(safe-area-inset-left,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:300 17px/1.55 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+p{margin:0}
+.wrap{max-width:1440px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+@media(min-width:900px){.wrap{padding-left:80px;padding-right:80px}}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#000;border:0;border-radius:999px;padding:14px 26px;font:400 15px/1 var(--font);text-decoration:none;cursor:pointer;transition:transform .25s ease,background .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid #3a3a3a}
+.btn.ghost:hover{border-color:#fff}
+.accent{color:var(--accent)}
+.label{font-size:14px;color:var(--muted)}
+h1,h2,h3{font-weight:300;letter-spacing:-.02em;margin:0;text-wrap:balance}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100svh;background:var(--panel)}
+.hero-l{display:flex;flex-direction:column;justify-content:space-between;padding:56px var(--gut) 48px;gap:48px}
+@media(min-width:900px){.hero-l{padding:64px 80px 56px}}
+.pill{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:#000;border-radius:999px;padding:9px 16px;font-size:13px;color:#ddd}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(88,214,141,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(88,214,141,0)}100%{box-shadow:0 0 0 0 rgba(88,214,141,0)}}
+.hero h1{font-size:clamp(38px,4.6vw,66px);line-height:1.08;max-width:15ch}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top}
+.hero h1 .w span{display:inline-block;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{transform:none}}
+.hero .sub{margin-top:24px;max-width:46ch;color:var(--muted);font-size:18px;opacity:0;animation:fade 1s .6s forwards}
+.hero .cta{margin-top:36px;opacity:0;animation:fade 1s .8s forwards}
+@keyframes fade{to{opacity:1}}
+.find{font-size:13px;color:var(--muted);line-height:1.7}
+.find a{color:var(--accent);text-underline-offset:3px}
+.hero-r{position:relative;overflow:hidden;min-height:60svh}
+.hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform:scale(1.08);animation:settle 2.2s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.hero-r figcaption{position:absolute;left:20px;bottom:20px;font-size:12px;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(6px);padding:6px 10px;border-radius:999px}
+@media(max-width:899px){.hero{grid-template-columns:1fr}.hero-r{min-height:70svh;order:-1}}
+
+/* bento */
+.bento{display:grid;grid-template-columns:300px 1fr 300px;grid-template-rows:auto auto;gap:16px;padding-block:120px 40px}
+.card{background:var(--panel);border-radius:var(--r);padding:28px;min-width:0;position:relative;overflow:hidden}
+.b1{grid-row:1/3;display:flex;flex-direction:column;gap:20px}
+.b1 h3{font-size:26px;line-height:1.2;color:var(--accent)}
+.b1 p{font-size:14px;color:var(--muted)}
+.clock{margin-top:auto}
+.clock .d{font-size:15px;color:var(--muted)}
+.clock .t{font-size:34px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.b2{grid-row:1/3;display:flex;flex-direction:column;justify-content:space-between;padding:56px}
+.slides{position:relative;min-height:240px}
+.slide{position:absolute;inset:0;opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s;pointer-events:none}
+.slide.on{opacity:1;transform:none;pointer-events:auto}
+.slide q{display:block;font-size:clamp(22px,2.4vw,34px);line-height:1.22;quotes:none}
+.slide .who{margin-top:28px;font-size:16px}
+.slide .who span{display:block;color:var(--muted);font-size:14px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px}
+.dots{display:flex;gap:8px}
+.dots button{width:7px;height:7px;border-radius:50%;border:0;background:#444;padding:0;cursor:pointer}
+.dots button.on{background:#fff}
+.arrows button{background:none;border:0;color:#bbb;font-size:20px;cursor:pointer;padding:4px 8px}
+.arrows button:hover{color:#fff}
+.b3 h4,.b4 h4{font:400 18px/1.3 var(--font);margin:0 0 8px}
+.b3 p,.b4 p{font-size:14px;color:var(--muted)}
+.chips{margin:22px -28px 0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.chips div{display:flex;gap:10px;width:max-content;animation:slide 18s linear infinite}
+.chips span{border:1px solid var(--line);background:#0b0b0b;border-radius:10px;padding:10px 14px;font-size:14px;white-space:nowrap}
+.big{font-size:44px;line-height:1;letter-spacing:-.03em;margin-top:14px}
+@media(max-width:1100px){.bento{grid-template-columns:1fr 1fr}.b2{grid-column:1/3;grid-row:auto;order:-1;padding:32px}.b1{grid-row:auto}}
+@media(max-width:640px){.bento{grid-template-columns:1fr;padding-block:72px 24px}.b2{grid-column:auto}}
+
+/* logo marquee */
+.marquee{overflow:hidden;padding-block:56px 100px;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee div{display:flex;gap:80px;width:max-content;animation:slide 40s linear infinite}
+.marquee span{font-size:clamp(22px,2.4vw,32px);font-weight:500;color:#3c3c3c;white-space:nowrap;letter-spacing:-.02em}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* statement */
+.statement{background:var(--panel);padding-block:160px}
+.statement .label{margin-bottom:28px}
+.statement p{font-size:clamp(28px,4.2vw,58px);line-height:1.12;letter-spacing:-.025em;max-width:24ch}
+.statement .wd{color:#3a3a3a;transition:color .25s}
+.statement .wd.lit{color:var(--text)}
+
+/* projects */
+.projects{padding-block:140px 60px}
+.sec-head{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(40px,5vw,64px)}
+.sec-head p{color:var(--muted);max-width:52ch;font-size:16px}
+.stack{display:flex;flex-direction:column;gap:40px}
+.proj{position:sticky;top:calc(40px + var(--i) * 14px);display:grid;grid-template-columns:1fr 1fr;min-height:min(78vh,640px);background:var(--panel);border-radius:var(--r);overflow:hidden;transform-origin:50% 0;will-change:transform;box-shadow:0 -20px 40px -20px rgba(0,0,0,.9)}
+.proj .l{padding:56px 72px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.proj .tag{font-size:20px;color:var(--accent)}
+.proj .meta{font-size:13px;color:var(--muted);letter-spacing:.01em}
+.proj h3{font-size:clamp(22px,2.1vw,30px);line-height:1.25;margin-top:auto}
+.proj .desc{font-size:15px;color:#b5b5b5;max-width:52ch}
+.proj .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.thumbs button{flex:0 0 auto;width:64px;height:64px;border-radius:8px;overflow:hidden;border:1px solid var(--line);padding:0;background:#000;cursor:zoom-in;opacity:.7;transition:opacity .2s,transform .2s}
+.thumbs button:hover,.thumbs button.on{opacity:1;transform:translateY(-2px);border-color:#555}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.proj .r{position:relative;min-height:320px;background:#0a0a0a;overflow:hidden;cursor:zoom-in}
+.proj .r img,.proj .r video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .4s,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.proj .r.contain img{object-fit:contain;padding:28px}
+
+.proj .r .cap{position:absolute;left:16px;bottom:16px;right:16px;font-size:12px;color:#fff;background:rgba(0,0,0,.5);backdrop-filter:blur(6px);padding:6px 10px;border-radius:8px;width:fit-content;max-width:calc(100% - 32px)}
+.proj .r.type{display:flex;align-items:flex-end;padding:48px;cursor:default;background:radial-gradient(120% 90% at 100% 0,#1f2b22 0,#0d0d0d 60%)}
+.proj .r.type b{font-weight:300;font-size:clamp(34px,4vw,60px);line-height:1.02;letter-spacing:-.03em;color:#cfe8d6}
+.drip{position:absolute;inset:0;background-image:radial-gradient(circle,#2d4d37 1.5px,transparent 2px);background-size:28px 28px;opacity:.6;animation:drip 6s linear infinite}
+@keyframes drip{to{background-position:0 28px}}
+@media(max-width:899px){.proj{grid-template-columns:1fr;position:relative;top:auto;min-height:0}.proj .r{order:-1;min-height:0;aspect-ratio:1/1}.proj .l{padding:28px 24px 32px}.proj h3{margin-top:4px}.proj .r.type{aspect-ratio:16/9;padding:28px}}
+
+/* honors */
+.honors{padding-block:120px 40px}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+@media(min-width:1200px){.hgrid{grid-template-columns:repeat(5,1fr)}}
+.hon .img.strip{background:#f2efe8;display:flex;align-items:center}.hon .img.strip img{height:auto;object-fit:contain;padding:0 10px}
+.hon{background:var(--panel);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.hon:hover{transform:translateY(-4px)}
+.hon .img{aspect-ratio:4/3;background:#0b0b0b;overflow:hidden;cursor:zoom-in}
+.hon .img img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.hon .img.contain img{object-fit:contain;padding:14px}
+.hon:hover .img img{transform:scale(1.04)}
+.hon .t{padding:20px 22px 24px}
+.hon b{display:block;font-weight:400;font-size:19px;line-height:1.25}
+.hon span{display:block;color:var(--muted);font-size:14px;margin-top:6px}
+.hon a{font-size:13px;color:var(--accent);display:inline-block;margin-top:10px;text-underline-offset:3px}
+
+/* certificates band */
+.certs{padding-block:120px 60px;overflow:hidden}
+.band{position:relative;margin-top:48px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.band-track{display:flex;gap:28px;width:max-content;animation:slide 70s linear infinite;padding-block:10px 24px}
+.band:hover .band-track{animation-play-state:paused}
+.cert{flex:0 0 auto;width:clamp(260px,26vw,380px);cursor:zoom-in;margin:0}
+.cert .frame{background:#f4f1ea;border-radius:6px;padding:10px;box-shadow:0 30px 60px -25px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.04);transform:rotate(var(--rot,0deg));transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.cert:hover .frame{transform:rotate(0) translateY(-8px) scale(1.03)}
+.cert img{width:100%;aspect-ratio:1.414/1;object-fit:contain;background:#f4f1ea;border-radius:3px}
+.cert figcaption{margin-top:16px;font-size:14px;line-height:1.4}
+.cert figcaption span{display:block;color:var(--muted);font-size:13px}
+
+/* video & press */
+.video{padding-block:100px 40px}
+.vframe{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;background:var(--panel);margin-top:40px}
+.vframe{display:block;color:#fff}
+.vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vframe>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55);transition:transform 1.2s cubic-bezier(.2,.7,.2,1),filter .4s}
+.vframe:hover>img{transform:scale(1.04);filter:brightness(.7)}
+.vframe .play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--accent);color:#000;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(251,137,137,.6);animation:pulse 2.2s infinite}
+.vframe .vt{position:absolute;left:24px;bottom:20px;font-size:15px}
+@keyframes pulse{70%{box-shadow:0 0 0 22px rgba(251,137,137,0)}100%{box-shadow:0 0 0 0 rgba(251,137,137,0)}}
+.vnote{color:var(--muted);font-size:14px;margin-top:14px}.vnote a{color:var(--accent)}
+.proj .r img.kb{animation:kb 6s ease-out forwards}
+@keyframes kb{from{transform:scale(.93)}to{transform:scale(1)}}
+.proj .r .bg,.hon .img .bg{position:absolute;inset:-40px;background-size:cover;background-position:center;filter:blur(30px) brightness(.4);transition:background-image .4s}
+.proj .r img.main,.proj .r video{object-fit:contain!important;z-index:1}
+.proj .r .cap{z-index:2}
+.hon .img{position:relative}.hon .img img{position:relative;z-index:1;object-fit:contain!important}
+.proj .r .bar{position:absolute;left:0;top:0;height:3px;background:var(--accent);width:0;z-index:2}
+.proj .r .bar.go{animation:bar 4.2s linear forwards}@keyframes bar{to{width:100%}}
+.press{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;padding-block:60px 40px}
+.press .card{display:flex;flex-direction:column;gap:14px;padding:36px}
+.press .card h3{font-size:clamp(22px,2.2vw,30px);line-height:1.25}
+.press .card .src{color:var(--accent);font-size:14px}
+.press .card p{color:var(--muted);font-size:15px}
+.press .shot{align-items:center;justify-content:center}
+.press .shot img{border-radius:10px;cursor:zoom-in;max-height:360px;width:auto;margin:auto;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+@media(max-width:899px){.press{grid-template-columns:1fr}}
+
+/* faq */
+.faq{padding-block:100px 40px;display:grid;grid-template-columns:1fr 1.4fr;gap:40px}
+.faq h2{font-size:clamp(36px,4vw,56px)}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-size:20px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--muted);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:12px;font-size:16px;max-width:60ch}
+@media(max-width:899px){.faq{grid-template-columns:1fr}}
+
+/* contact */
+.contact{padding-block:140px 80px;text-align:left}
+.contact h2{font-size:clamp(44px,7vw,110px);line-height:1;letter-spacing:-.04em}
+.contact .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;align-items:center}
+.mail{font-size:clamp(18px,2vw,24px);border-bottom:1px solid #444;padding-bottom:4px;user-select:all}
+
+/* tunnel */
+.tunnel-wrap{height:240vh}
+.tunnel{position:sticky;top:0;height:100vh;overflow:hidden;perspective:420px;background:#000}
+.world{position:absolute;left:50%;top:50%;transform-style:preserve-3d}
+.ring{position:absolute;transform-style:preserve-3d}
+.tile{position:absolute;overflow:hidden;background:#111}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tunnel .shade{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle,#000 0,transparent 10%,transparent 60%,rgba(0,0,0,.4) 100%)}
+.tunnel .hint{position:absolute;left:0;right:0;bottom:28px;text-align:center;font-size:13px;color:#fff;opacity:.75;mix-blend-mode:difference}
+footer{padding-block:36px 48px;color:var(--dim);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s}
+.lb.on{opacity:1;pointer-events:auto}
+.lb img{max-width:min(1200px,94vw);max-height:80vh;border-radius:8px;transform:scale(.96);transition:transform .35s}
+.lb.on img{transform:none}
+.lb p{color:#ddd;font-size:15px;margin-top:14px;text-align:center;max-width:70ch}
+.lb .x{position:absolute;top:18px;right:18px;background:#fff;color:#000;border:0;border-radius:999px;padding:10px 16px;cursor:pointer;font:400 14px var(--font)}
+.lb .nv{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;width:48px;height:48px;font-size:22px;cursor:pointer}
+.lb .pv{left:14px}.lb .nx{right:14px}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-l">
+    
+    <div>
+      <h1 id="h1">Robots, automation and code, built in Kénitra, Morocco.</h1>
+      <p class="sub">I'm Akram Hssaine, a final-year student in Sciences Mathématiques A. I want to study electrical and computer engineering.</p>
+      <div class="cta"><a class="btn" href="#projects">See my work</a></div>
+    </div>
+    <p class="find">Find me on <a href="https://www.linkedin.com/in/akram-hssaine-538584325/" target="_blank" rel="noopener">LinkedIn</a>, <a href="https://github.com/Enkefalos-official" target="_blank" rel="noopener">GitHub</a> and <a href="https://www.instagram.com/akram_hsyn/" target="_blank" rel="noopener">Instagram</a>.<br>Email <a href="#contact">akramhssaine@gmail.com</a></p>
+  </div>
+  <figure class="hero-r" style="margin:0"><img src="hero.jpg" alt="Akram Hssaine"><figcaption>At the Russian Embassy in Rabat, before IFY-2026</figcaption></figure>
+</section>
+
+<div class="wrap">
+  <section class="bento">
+    <div class="card b1 rv">
+      <h3>A student who learns by building things.</h3>
+      <p>If you want to talk about a project, a program or anything on this page, write to me.</p>
+      <div><a class="btn" href="#contact">Say hello</a></div>
+      <div class="clock"><div class="d" id="cd">Kénitra</div><div class="t" id="ct">--:--:--</div><div class="label">Time in Kénitra</div></div>
+    </div>
+    <div class="card b2 rv">
+      <div class="slides" id="slides">
+        <div class="slide on"><q>One of 1,000 teenagers from 99 countries at the International Festival of Youth 2026, chosen from about 16,500 applicants.</q><div class="who">IFY-2026<span>Ekaterinburg, Russia · September 2026</span></div></div>
+        <div class="slide"><q>We trained 67 participants into 12 teams at the first African edition of DigiEduHack.</q><div class="who">DigiEduHack Kénitra<span>Ibn Tofail University · Co-Director</span></div></div>
+        <div class="slide"><q>A 7-person sales team on commission, my own lead scraper, a no-repeat call system and 11 paying clients.</q><div class="who">DyraBuild<span>My web agency · Summer 2026</span></div></div>
+      </div>
+      <div class="nav"><div class="dots" id="dots"></div><div class="arrows"><button type="button" id="prev" aria-label="Previous">‹</button><button type="button" id="next" aria-label="Next">›</button></div></div>
+    </div>
+    <div class="card b3 rv">
+      <h4>What I work with</h4>
+      <p>Tools I use in my own projects.</p>
+      <div class="chips"><div><span>Python</span><span>C++</span><span>n8n</span><span>Expo</span><span>Microcontrollers</span><span>Web design</span><span>Lead scraping</span><span>Python</span><span>C++</span><span>n8n</span><span>Expo</span><span>Microcontrollers</span><span>Web design</span><span>Lead scraping</span></div></div>
+    </div>
+    <div class="card b4 rv">
+      <h4>Regional bac exam</h4>
+      <p>Moroccan grades are out of 20, and 16 already earns the top national mention.</p>
+      <div class="big">18.20<span class="label" style="font-size:16px"> / 20</span></div>
+    </div>
+  </section>
+</div>
+
+<div class="marquee" aria-hidden="true"><div>
+  <span>RAMAQS</span><span>DigiEduHack</span><span>Ibn Tofail University</span><span>ENSA Kénitra</span><span>IFY-2026</span><span>UM6P</span><span>Maths&amp;Maroc</span><span>Groupe Pédagogique Alpha</span><span>URA.RU</span>
+  <span>RAMAQS</span><span>DigiEduHack</span><span>Ibn Tofail University</span><span>ENSA Kénitra</span><span>IFY-2026</span><span>UM6P</span><span>Maths&amp;Maroc</span><span>Groupe Pédagogique Alpha</span><span>URA.RU</span>
+</div></div>
+
+<section class="statement"><div class="wrap">
+  <div class="label">Overview</div>
+  <p id="stmt">I learn by building. An electromagnetic lever for a robot, a call system for a sales team, a hackathon for 67 people and a maths problem about frogs on lily pads. Here is what is behind each one.</p>
+</div></section>
+
+<section class="projects" id="projects"><div class="wrap">
+  <div class="sec-head rv"><h2>Projects</h2><p>Tap any photo to see it full size.</p></div>
+  <div class="stack" id="stack">
+
+    <article class="proj" style="--i:0" data-gal="ify">
+      <div class="l">
+        <div class="tag">IFY-2026</div>
+        <div class="meta">Delegate &amp; speaker · Ekaterinburg, Russia · 11–17 September 2026</div>
+        <h3>One of 1,000 teenagers from 99 countries, picked to present my project to the media.</h3>
+        <p class="desc">The Children's Programme of the International Festival of Youth chose 1,000 teens aged 14 to 17 from about 16,500 applicants. I spoke at the festival press conference and was interviewed on camera, and the Russian news site URA.RU wrote about me.</p>
+        <div class="acts"><a class="btn" href="https://www.myjoyonline.com/moroccan-teenager-joins-1000-young-people-for-ify-2026-childrens-programme-in-russia/" target="_blank" rel="noopener">Read the press article</a></div>
+        <div class="thumbs"></div>
+      </div>
+      <div class="r"></div>
+      <script type="application/json">[
+        ["ify-press.jpg","At the IFY-2026 press conference"],
+        ["ify-solo.jpg","Waiting to speak, with my name card"],
+        ["ify-tv.jpg","On-camera interview: \"student from Morocco, studies technology\""],
+        ["ify-ura.jpg","URA.RU, 11 September 2026"],
+        ["ify-hands.jpg","After the press conference"],
+        ["ify-night.jpg","With delegates from other countries"],
+        ["ify-flags.jpg","Morocco and Brazil"]]</script>
+    </article>
+
+    <article class="proj" style="--i:1" data-gal="dg">
+      <div class="l">
+        <div class="tag">DigiEduHack Kénitra</div>
+        <div class="meta">Co-Director · Ibn Tofail University · November 2025</div>
+        <h3>The first African edition of an EU-backed education hackathon, in my city.</h3>
+        <p class="desc">I co-directed the event and trained 67 participants, who formed 12 teams. An educational WhatsApp assistant built in n8n ran live on the big screen, and every participant left with a certificate.</p>
+        <div class="acts"><a class="btn" href="https://youtu.be/nazJhXSALgM" target="_blank" rel="noopener">Watch the video</a><a class="btn ghost" href="#video">Play it here</a></div>
+        <div class="thumbs"></div>
+      </div>
+      <div class="r"></div>
+      <script type="application/json">[
+        ["dg-group.jpg","Participants with their certificates"],
+        ["dg-stage.jpg","Opening session, on stage"],
+        ["dg-n8n.jpg","An educational WhatsApp assistant built in n8n, on the big screen"],
+        ["dg-org.jpg","The organising team"],
+        ["dg-team.jpg","Part of the team"],
+        ["dg-mentor.jpg","A team at work"],
+        ["dg-duo.jpg","With my co-director"]]</script>
+    </article>
+
+    <article class="proj" style="--i:2" data-gal="db">
+      <div class="l">
+        <div class="tag">DyraBuild</div>
+        <div class="meta">Founder · web agency · summer 2026</div>
+        <h3>Websites designed, built and delivered in seven days.</h3>
+        <p class="desc">I design and build the sites. To sell them I recruited a sales team of seven paid on commission, wrote my own lead scraper and built a call system so no business is called twice. Eleven clients paid, and the first signed agreement was for 1,000 dirhams.</p>
+        <div class="thumbs"></div>
+      </div>
+      <div class="r contain"></div>
+      <script type="application/json">[
+        ["db-site.jpg","The DyraBuild website: \"Des sites web pensés, dessinés et livrés en 7 jours\""],
+        ["db-sheet.jpg","Lead sheet for small clinics in Kénitra, with priority and call status (names and numbers blurred)"]]</script>
+    </article>
+
+    <article class="proj" style="--i:3" data-gal="rq">
+      <div class="l">
+        <div class="tag">RAMAQS</div>
+        <div class="meta">Paid intern · summer 2026</div>
+        <h3>Irrigation scheduling for a client farm.</h3>
+        <p class="desc">I worked inside the company's team on when and how much to water a client's farm.</p>
+        <div class="acts"><a class="btn" href="https://ramaqs.ma/" target="_blank" rel="noopener">Visit RAMAQS</a></div>
+        <div class="thumbs"></div>
+      </div>
+      <div class="r"></div>
+      <script type="application/json">[
+        ["rq-farm.jpg","The client farm"],
+        ["rq-drip.jpg","Drip irrigation line at the client farm"],
+        ["rq-pump.jpg","Motor water pump"]]</script>
+    </article>
+
+    <article class="proj" style="--i:4" data-gal="rc">
+      <div class="l">
+        <div class="tag">RoboCAD</div>
+        <div class="meta">1st place · ENSA Kénitra · 10–11 December 2023</div>
+        <h3>Winner as a 9th grader, on a university team.</h3>
+        <p class="desc">RoboCAD is the robotics competition of the Club Mécatronique at the École Nationale des Sciences Appliquées de Kénitra. The theme was urban delivery, from design to build. I joined a university team in grade 9 and built the robot's electromagnetic lever.</p>
+        <div class="thumbs"></div>
+      </div>
+      <div class="r contain"></div>
+      <script type="application/json">[["cert-3e6db0.jpg","RoboCAD Attestation de Winner, ENSA Kénitra, December 2023"]]</script>
+    </article>
+
+    <article class="proj" style="--i:5" data-gal="mt">
+      <div class="l">
+        <div class="tag">MTYM</div>
+        <div class="meta">Regional finalist · Team SuperMaths · October 2026</div>
+        <h3>Open research problems, written up and defended with my team.</h3>
+        <p class="desc">For the 4th Moroccan Tournament of Young Mathematicians, four of us worked on Problem 1, "Grenouilles pêle-mêle": how frogs can sit on a ring of lily pads. We wrote the solution as a paper and presented it at UM6P.</p>
+        <div class="thumbs"></div>
+      </div>
+      <div class="r"></div>
+      <script type="application/json">[
+        ["mt-team.jpg","Team SuperMaths"],
+        ["mt-paper.jpg","Our write-up of Problem 1"],
+        ["mt-slides.jpg","Our presentation slides"]]</script>
+    </article>
+
+    <article class="proj" style="--i:6">
+      <div class="l">
+        <div class="tag">Club RAISE</div>
+        <div class="meta">Member · charity &amp; recycling</div>
+        <h3>Food collected, 127 orphans clothed, recycling brought to school.</h3>
+        <p class="desc">Our charity event, in the club's own video.</p>
+        <div class="acts"><a class="btn" href="https://www.instagram.com/raisee_club/" target="_blank" rel="noopener">Club RAISE on Instagram</a></div>
+      </div>
+      <div class="r" id="raise"><div class="bg" style="background-image:url(raise-poster.jpg)"></div><img class="main" src="raise-anim.webp" alt="Club RAISE charity event video"><div class="cap">Club RAISE charity event</div></div>
+    </article>
+
+    <article class="proj" style="--i:7" data-gal="st">
+      <div class="l">
+        <div class="tag">Physics &amp; code, on my own</div>
+        <div class="meta">Self-taught · grades 10–12</div>
+        <h3>Olympiad papers, competitions and code, prepared alone.</h3>
+        <p class="desc">Past papers on mechanics, optics and circuits, the International Youth Math Challenge qualification round, and an official invitation to sit Maths&amp;Maroc's MMC Junior. I teach myself to code the same way.</p>
+        <div class="thumbs"></div>
+      </div>
+      <div class="r"></div>
+      <script type="application/json">[
+        ["st-table.jpg","A normal study session"],
+        ["st-crane.jpg","Olympiad practice: statics and kinematics"],
+        ["st-optics.jpg","Olympiad practice: optics"],
+        ["st-diodes.jpg","Olympiad practice: a diode bridge"],
+        ["st-iymc.jpg","International Youth Math Challenge, qualification round"],
+        ["st-conv.jpg","Official invitation to MMC Junior, Maths&Maroc"],
+        ["st-laptops.jpg","Two laptops, one evening"],
+        ["st-laptop2.jpg","Coding at a café"],
+        ["st-outdoor.jpg","Revising outside"],
+        ["st-train.jpg","On the way to a competition"]]</script>
+    </article>
+
+  </div>
+</div></section>
+
+<section class="honors"><div class="wrap">
+  <div class="sec-head rv"><h2>Honors</h2><p>The five on my application.</p></div>
+  <div class="hgrid">
+    <div class="hon rv"><div class="img" data-src="npho.jpg" data-cap="Receiving the Physics Olympiad award"><img src="npho.jpg" alt="" loading="lazy"></div><div class="t"><b>Excellence Award</b><span>National Physics Olympiad</span></div></div>
+    <div class="hon rv"><div class="img strip" data-src="mmc.jpg" data-cap="Official MMC Junior 2026 results, Maths&amp;Maroc"><img src="mmc.jpg" alt="" loading="lazy"></div><div class="t"><b>MMC Junior 2026</b><span>Maths&amp;Maroc Competition, about 2,000 participants</span><a href="https://participant.mathmaroc.org/events/mmc-junior-2026/results" target="_blank" rel="noopener">Official results</a></div></div>
+    <div class="hon rv"><div class="img" data-src="ify-press.jpg" data-cap="IFY-2026 press conference"><img src="ify-press.jpg" alt="" loading="lazy"></div><div class="t"><b>Picked to present to the media</b><span>Out of 1,000 teens at IFY-2026</span></div></div>
+    <div class="hon rv"><div class="img contain" data-src="cert-3e6db0.jpg" data-cap="RoboCAD Attestation de Winner"><img src="cert-3e6db0.jpg" alt="" loading="lazy"></div><div class="t"><b>RoboCAD, 1st place</b><span>As a 9th grader on a university team</span></div></div>
+    <div class="hon rv"><div class="img" data-src="mt-team.jpg" data-cap="Team SuperMaths, MTYM"><img src="mt-team.jpg" alt="" loading="lazy"></div><div class="t"><b>Regional finalist</b><span>Moroccan Tournament of Young Mathematicians</span></div></div>
+  </div>
+</div></section>
+
+<section class="certs"><div class="wrap">
+  <div class="sec-head rv"><h2>Certificates</h2><p>Scanned from the originals. Hover to pause, tap to read one.</p></div>
+</div>
+  <div class="band"><div class="band-track" id="band"></div></div>
+</section>
+
+<section class="video" id="video"><div class="wrap">
+  <div class="sec-head rv"><h2>DigiEduHack, on video</h2></div>
+  <a class="vframe rv" id="yt" href="https://www.youtube.com/watch?v=nazJhXSALgM" target="_blank" rel="noopener"><img src="dg-stage.jpg" alt=""><span class="play"><svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span><span class="vt">DigiEduHack Kénitra · the film</span></a>
+  <p class="vnote">Not playing? <a href="https://youtu.be/nazJhXSALgM" target="_blank" rel="noopener">Watch it on YouTube</a>.</p>
+</div></section>
+
+<section class="wrap"><div class="press">
+  <a class="card rv" href="https://www.myjoyonline.com/moroccan-teenager-joins-1000-young-people-for-ify-2026-childrens-programme-in-russia/" target="_blank" rel="noopener" style="text-decoration:none">
+    <span class="src">MyJoyOnline</span>
+    <h3>Moroccan teenager joins 1,000 young people for IFY-2026 Children's Programme in Russia</h3>
+    <p>Read the article ↗</p>
+  </a>
+  <div class="card rv shot">
+    <img src="ify-ura.jpg" alt="URA.RU article" data-cap="URA.RU, 11 September 2026">
+    <span class="src">URA.RU · 11 September 2026</span>
+  </div>
+</div></section>
+
+<section class="wrap"><div class="faq">
+  <h2 class="rv">Quick facts</h2>
+  <div class="rv">
+    <details open><summary>Where do I study?</summary><p>Groupe Scolaire Alpha in Kénitra, Morocco, in the Sciences Mathématiques A track of the Moroccan baccalauréat. I finish in June 2027.</p></details>
+    <details><summary>What do I want to study?</summary><p>Electrical and computer engineering, with a focus on robotics and automation.</p></details>
+    <details><summary>Which languages do I speak?</summary><p>Arabic, French and English, and a little Spanish.</p></details>
+    <details><summary>Can I see more?</summary><p>Yes. My code is on GitHub and my experience is on LinkedIn. Write to me for anything else.</p></details>
+  </div>
+</div></section>
+
+<section class="wrap contact" id="contact">
+  <div class="label rv">Contact</div>
+  <h2 class="rv">Say hello.</h2>
+  <div class="row rv"><span class="mail" id="email">akramhssaine@gmail.com</span><button class="btn" type="button" id="copy">Copy email</button><a class="btn ghost" href="https://www.linkedin.com/in/akram-hssaine-538584325/" target="_blank" rel="noopener">LinkedIn</a><a class="btn ghost" href="https://github.com/Enkefalos-official" target="_blank" rel="noopener">GitHub</a></div>
+</section>
+
+<div class="tunnel-wrap" aria-hidden="true"><div class="tunnel" id="tunnel"><div class="world" id="world"></div><div class="shade"></div><div class="hint">Keep scrolling</div></div></div>
+
+<footer class="wrap"><span>© 2026 Akram Hssaine · Kénitra, Morocco</span><a href="#top" onclick="scrollTo({top:0,behavior:'smooth'});return false" style="color:inherit">Back to top ↑</a></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo"><button class="x" type="button" id="lbx">Close</button><button class="nv pv" type="button" id="lbp" aria-label="Previous">‹</button><img id="lbi" alt=""><p id="lbc"></p><button class="nv nx" type="button" id="lbn" aria-label="Next">›</button></div>
+
+<script>
+(function(){
+var CERTS=[
+ ["cert-3e6db0.jpg","RoboCAD, Attestation de Winner","ENSA Kénitra · December 2023"],
+ ["cert-268f37.jpg","Physics Olympiad, certificate of appreciation","Groupe Pédagogique Alpha · May 2024"],
+ ["cert-6b35c5.jpg","Maths Expo, certificate of recognition","Groupe Pédagogique Alpha · April 2025"],
+ ["cert-25ec4c.jpg","Rallye Mathématique, 1st place","Groupe Scolaire Pythagore, Casablanca · March 2021"],
+ ["cert-e04018.jpg","Rallye, 2nd place","Groupe Scolaire Pythagore, Casablanca · March 2021"],
+ ["cert-56ffb9.jpg","Taekwondo, participation certificate","Ligue Casablanca-Settat"],
+ ["cert-171ea0.jpg","Taekwondo, belt grading","Association Toudali, Casablanca"],
+ ["cert-5ae2f9.jpg","Taekwondo, belt grading","Association Toudali, Casablanca"],
+ ["cert-32cd3f.jpg","Karate certificate","Orange belt"],
+ ["cert-bfd473.jpg","Football, official diploma","Kénitra Ma Ville Academy · U15"]
+];
+/* hero words */
+var h=document.getElementById('h1');h.innerHTML=h.textContent.split(' ').map(function(w,i){return '<span class="w"><span style="animation-delay:'+(0.08*i)+'s">'+w+'</span></span>'}).join(' ');
+
+/* lightbox */
+var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),lbc=document.getElementById('lbc'),cur=[],ci=0;
+function show(){lbi.src=cur[ci][0];lbc.textContent=cur[ci][1]||'';document.getElementById('lbp').hidden=document.getElementById('lbn').hidden=cur.length<2}
+function open(list,i){cur=list;ci=i;show();lb.classList.add('on');document.body.style.overflow='hidden'}
+function close(){lb.classList.remove('on');document.body.style.overflow=''}
+document.getElementById('lbx').onclick=close;
+lb.addEventListener('click',function(e){if(e.target===lb)close()});
+document.getElementById('lbp').onclick=function(){ci=(ci-1+cur.length)%cur.length;show()};
+document.getElementById('lbn').onclick=function(){ci=(ci+1)%cur.length;show()};
+addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')document.getElementById('lbn').click();if(e.key==='ArrowLeft')document.getElementById('lbp').click()});
+
+/* project galleries */
+document.querySelectorAll('.proj[data-gal]').forEach(function(p){
+  var list=JSON.parse(p.querySelector('script[type="application/json"]').textContent);
+  var r=p.querySelector('.r'),th=p.querySelector('.thumbs'),idx=0;
+  var bgd=document.createElement('div');bgd.className='bg';r.appendChild(bgd);
+  var img=document.createElement('img');img.alt='';img.className='main';r.appendChild(img);
+  var cap=document.createElement('div');cap.className='cap';r.appendChild(cap);
+  var bar=document.createElement('div');bar.className='bar';r.appendChild(bar);
+  function kb(){if(r.classList.contains('contain'))return;img.classList.remove('kb');void img.offsetWidth;img.classList.add('kb')}
+  function set(i){idx=i;img.style.opacity=0;setTimeout(function(){img.src=list[i][0];bgd.style.backgroundImage='url("'+list[i][0]+'")';cap.textContent=list[i][1];img.style.opacity=1;kb()},300);
+    [].forEach.call(th.children,function(b,j){b.classList.toggle('on',j===i)});restart()}
+  img.src=list[0][0];bgd.style.backgroundImage='url("'+list[0][0]+'")';cap.textContent=list[0][1];kb();
+  var tm=null,vis=false,hov=false;
+  function restart(){clearTimeout(tm);bar.classList.remove('go');if(list.length<2||!vis||hov)return;void bar.offsetWidth;bar.classList.add('go');tm=setTimeout(function(){set((idx+1)%list.length)},4200)}
+  r.addEventListener('mouseenter',function(){hov=true;restart()});r.addEventListener('mouseleave',function(){hov=false;restart()});
+  new IntersectionObserver(function(es){vis=es[0].isIntersecting;restart()},{threshold:.35}).observe(r);
+  list.forEach(function(it){var pre=new Image();pre.src=it[0]});
+  if(list.length>1){list.forEach(function(it,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label',it[1]);var t=document.createElement('img');t.src=it[0];t.alt='';t.loading='lazy';b.appendChild(t);b.onclick=function(){set(i)};th.appendChild(b)});th.children[0].classList.add('on')}
+  else th.remove();
+  r.addEventListener('click',function(){open(list,idx)});
+});
+document.querySelectorAll('.hon .img').forEach(function(d){if(!d.classList.contains('strip')){var g=document.createElement('div');g.className='bg';g.style.backgroundImage='url("'+d.querySelector('img').getAttribute('src')+'")';d.insertBefore(g,d.firstChild)}d.onclick=function(){open([[d.dataset.src,d.dataset.cap]],0)}});
+document.querySelectorAll('.press img').forEach(function(i){i.onclick=function(){open([[i.getAttribute('src'),i.dataset.cap]],0)}});
+document.querySelector('.hero-r').onclick=function(){open([["hero.jpg","At the Russian Embassy in Rabat"]],0)};
+
+/* certificates band */
+var band=document.getElementById('band'),clist=CERTS.map(function(c){return [c[0],c[1]+' · '+c[2]]});
+CERTS.concat(CERTS).forEach(function(c,i){
+  var f=document.createElement('figure');f.className='cert';f.style.setProperty('--rot',((i%3)-1)*1.2+'deg');
+  f.innerHTML='<div class="frame"><img alt="" loading="lazy"></div><figcaption></figcaption>';
+  f.querySelector('img').src=c[0];var fc=f.querySelector('figcaption');fc.textContent=c[1];var s=document.createElement('span');s.textContent=c[2];fc.appendChild(s);
+  f.onclick=function(){open(clist,i%CERTS.length)};band.appendChild(f);
+});
+
+/* carousel */
+var sl=[].slice.call(document.querySelectorAll('.slide')),dots=document.getElementById('dots'),si=0,timer;
+sl.forEach(function(_,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Slide '+(i+1));b.onclick=function(){go(i)};dots.appendChild(b)});
+function go(i){si=(i+sl.length)%sl.length;sl.forEach(function(s,j){s.classList.toggle('on',j===si)});[].forEach.call(dots.children,function(d,j){d.classList.toggle('on',j===si)});clearInterval(timer);timer=setInterval(function(){go(si+1)},6000)}
+document.getElementById('prev').onclick=function(){go(si-1)};document.getElementById('next').onclick=function(){go(si+1)};go(0);
+
+/* clock */
+var fd=new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Casablanca',weekday:'long',day:'numeric',month:'long'});
+var ft=new Intl.DateTimeFormat('en-GB',{timeZone:'Africa/Casablanca',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+function tick(){var n=new Date();document.getElementById('cd').textContent=fd.format(n);document.getElementById('ct').textContent=ft.format(n)}tick();setInterval(tick,1000);
+
+/* copy email */
+var cb=document.getElementById('copy'),em=document.getElementById('email');
+cb.onclick=function(){var ok=function(){cb.textContent='Copied';setTimeout(function(){cb.textContent='Copy email'},1500)};
+  var fb=function(){var r=document.createRange();r.selectNodeContents(em);var s=getSelection();s.removeAllRanges();s.addRange(r);cb.textContent='Selected'};
+  try{navigator.clipboard.writeText(em.textContent).then(ok,fb)}catch(e){fb()}};
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+/* statement word lighting */
+var st=document.getElementById('stmt');st.innerHTML=st.textContent.split(' ').map(function(w){return '<span class="wd">'+w+'</span>'}).join(' ');
+var wds=st.querySelectorAll('.wd');
+
+/* stacking cards */
+var cards=[].slice.call(document.querySelectorAll('.proj'));
+var mq=matchMedia('(max-width:899px)');
+function onScroll(){
+  var vh=innerHeight,rc=st.getBoundingClientRect();
+  var p=Math.min(1,Math.max(0,(vh*0.85-rc.top)/(rc.height+vh*0.35)));
+  var n=Math.round(p*wds.length);for(var i=0;i<wds.length;i++)wds[i].classList.toggle('lit',i<n);
+  if(mq.matches){cards.forEach(function(c){c.style.transform='';c.style.filter=''});return}
+  for(var k=0;k<cards.length-1;k++){
+    var next=cards[k+1].getBoundingClientRect(),me=cards[k].getBoundingClientRect();
+    var ov=Math.min(1,Math.max(0,(me.bottom-next.top)/me.height));
+    cards[k].style.transform='scale('+(1-ov*0.06).toFixed(4)+')';
+    cards[k].style.filter='brightness('+(1-ov*0.5).toFixed(3)+')';
+  }
+}
+addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+/* youtube: embed on a real website, open YouTube otherwise */
+var yt=document.getElementById('yt');yt.addEventListener('click',function(e){if(!/^https?:/.test(location.protocol))return;e.preventDefault();
+  var f=document.createElement('iframe');f.src='https://www.youtube.com/embed/nazJhXSALgM?autoplay=1&rel=0&playsinline=1&origin='+encodeURIComponent(location.origin);f.title='DigiEduHack Kénitra';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.referrerPolicy='strict-origin-when-cross-origin';yt.innerHTML='';yt.appendChild(f);yt.removeAttribute('href')});
+
+/* raise clip */
+document.getElementById('raise').onclick=function(){open([["raise-anim.webp","Club RAISE charity event"]],0)};
+
+/* photo tunnel */
+var srcs=[];document.querySelectorAll('.proj script[type="application/json"]').forEach(function(s){JSON.parse(s.textContent).forEach(function(it){if(!/cert-|db-sheet|mt-paper|mt-slides|st-iymc|st-conv|st-diodes|st-optics|st-crane|ify-ura/.test(it[0]))srcs.push(it[0])})});
+srcs.push('hero.jpg','npho.jpg');
+var world=document.getElementById('world'),wrapT=document.getElementById('tunnel'),M=12,N=13,R,D,W,rings=[],k2=0;
+for(var i=0;i<N;i++){var ring=document.createElement('div');ring.className='ring';for(var j=0;j<M;j++){var t=document.createElement('div');t.className='tile';var im=document.createElement('img');im.alt='';im.loading='lazy';im.src=srcs[(k2*7+i*3)%srcs.length];k2++;t.appendChild(im);ring.appendChild(t)}world.appendChild(ring);rings.push(ring)}
+function layout(){var vw=wrapT.clientWidth,vh=wrapT.clientHeight;R=Math.max(vw,vh)*0.42;W=2*Math.PI*R/M+1;D=W*1.25;
+  rings.forEach(function(ring,i){[].forEach.call(ring.children,function(t,j){var a=j*360/M+(i%2?180/M:0);t.style.width=(W-4)+'px';t.style.height=(D-4)+'px';t.style.marginLeft=(-(W-4)/2)+'px';t.style.marginTop=(-(D-4)/2)+'px';t.style.transform='rotateZ('+a+'deg) translateY('+R+'px) rotateX(90deg)'})})}
+var pos=0,speed=0,lastY=scrollY,lastT=performance.now(),base=matchMedia('(prefers-reduced-motion: reduce)').matches?0:0.06;
+function frame(now){var dt=Math.min(64,now-lastT);lastT=now;var y=scrollY,dy=y-lastY;lastY=y;speed+=(dy*0.9/Math.max(dt,1)-speed)*0.12;pos+=(base+speed)*dt;
+  var span=N*D,near=D*0.6;for(var i=0;i<N;i++){var z=((i*D+pos)%span+span)%span-span+near,far=-span+near,f=Math.min(1,(z-far)/(D*2.5));rings[i].style.transform='translateZ('+z.toFixed(1)+'px)';rings[i].style.opacity=f.toFixed(3)}
+  requestAnimationFrame(frame)}
+layout();addEventListener('resize',layout);requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
